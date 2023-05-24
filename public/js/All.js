@@ -3,6 +3,12 @@
 let myName=JSON.parse(localStorage.getItem("name"))||'';
 let MyDiv=document.querySelector(".tasks");
 let tasks=JSON.parse(localStorage.getItem("tasks"))||[];
+
+const doit=(n)=>{
+    if(n.key==='Enter'){
+        addToArr();
+    }
+}
 const setName=()=>{
     let mame=document.querySelector(".Name").value;
     if(mame.trim()!==''){
@@ -38,18 +44,28 @@ function show(){
         for(i=0;i<tasks.length;i++){
             MyDiv.innerHTML+=`
                 <div class="task_">
-                    <p> &#8594; ${tasks[i]} </p>
-                    <button onclick="remove(i)" class="remove">Remove</button>
+                    <p class="text_0"> &#8594; ${tasks[i]} </p>
+                    <button onclick="remove(${i})" class="remove">Remove</button>
                 </div>
             `;
             localStorage.setItem("tasks",JSON.stringify(tasks));
             //console.log(i);
         }
     }
+    if(tasks.length>=6){
+        document.querySelector(".clear").innerHTML=`
+        <button class="button_1 button_2 button_3" onclick="clearAll()">clear all</button>
+        `;
+    }
  }
  const remove=(n)=>{
-    tasks.pop(n);
+    tasks.splice(n,1);
     MyDiv.innerHTML='';
     localStorage.setItem("tasks",JSON.stringify(tasks));
     show();
  }
+const clearAll=()=>{
+    localStorage.clear();
+    MyDiv.innerHTML='';
+    document.querySelector(".clear").innerHTML='';
+}

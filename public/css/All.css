@@ -23,7 +23,7 @@ input{
     padding-left: 15px;
 }
 .button_1{
-    height: 53px;
+    height: 50px;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
     width: 60px;
@@ -40,8 +40,12 @@ input{
     border-radius: 10px;
     width: fit-content;
 }
+
 .button_1:hover{
     background-image: linear-gradient(45deg,rgb(0, 221, 255),rgb(0, 181, 132));    
+}
+.button_3{
+    background-image: linear-gradient(45deg,rgb(255, 140, 0),rgb(234, 11, 11)); 
 }
 .innerBox{
     display: flex;
@@ -100,6 +104,9 @@ padding: 10px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 17px;
     color: goldenrod;
+}
+.text_0{
+    font-size: 18px;
 }
 .fixed_1{
     position: fixed;
